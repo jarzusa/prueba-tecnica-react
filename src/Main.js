@@ -14,7 +14,7 @@ import QuotasProvider from "./components/views/quotaProvider.component";
 import AssignRol from "./components/views/assignrol.component";
 import Button from "./components/form/button.component";
 import ItemNavBar from "./components/form/item.navbar.component";
-import URL_API from "./config/url.api";
+import URL_API from "./config/url.api"; 
 
 export default class Main extends Component {
 
