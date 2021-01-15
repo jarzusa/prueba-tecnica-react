@@ -3,7 +3,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import moment from 'moment';
 import axios from 'axios';
-import URL_API, { refreshPage } from "./../../config/url.api";
+import URL_API from "./../../config/url.api";
 import Button from "./../form/button.component";
 import { faCalendarPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -16,6 +16,13 @@ export default class Card extends Component {
         })
     }
 
+    componentWillMount(){
+        this.button = <p></p>
+        if (!this.props.hiddeButton) {
+            this.button = <button type="button" className="btn btn-primary" onClick={() => this.suscribeQuote(this.props)} className="btn btn-primary">Agendar cupo</button>
+        }
+    }
+
     suscribeQuote(props){
         let data = {
             codCita: props.code
@@ -59,8 +66,8 @@ export default class Card extends Component {
                                 <p className="card-text">Descripcion: {this.props.description}</p>
                                 <p className="card-text">Cupos Totales: {this.props.quota_total} </p>
                                 <p className="card-text">Cupos disponibles: {this.props.quota_on} </p>
-                                {/* <a href="#" className="btn btn-primary">Asignar cupo</a> */}
-                                <button type="button" className="btn btn-primary" onClick={() => this.suscribeQuote(this.props)} className="btn btn-primary">Agendar cupo</button>
+                                {this.button}
+                                
                             </div>
                         <div className="card-footer text-muted">
                         {this.props.date}

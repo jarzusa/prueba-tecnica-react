@@ -12,20 +12,18 @@ export default class Login extends Component {
         // this.state = {
         //     result: ""
         // };
-        this.getEmail = this.getEmail.bind(this);
-        this.getPassword = this.getPassword.bind(this);
-        this.sendData = this.sendData.bind(this);
+        // this.getEmail = this.getEmail.bind(this);
+        // this.getPassword = this.getPassword.bind(this);
+        // this.sendData = this.sendData.bind(this);
     }
 
     getEmail(result) {
-        // the event context comes from the Child
         this.setState({ 
             email: result,
         });
     }
 
     getPassword(result) {
-        // the event context comes from the Child
         this.setState({ 
             password: result,
         });

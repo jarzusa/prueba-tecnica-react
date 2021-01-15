@@ -18,6 +18,7 @@ export const URL_API = {
         if (URL_API.user.access_token != null) {
             URL_API.user.access_token = null
             localStorage.setItem('currentUser', JSON.stringify(URL_API.user))
+            URL_API.user = JSON.parse(localStorage.getItem('currentUser'))
         }
         URL_API.goToLogin()
 

@@ -9,9 +9,6 @@ export default class SignUp extends Component {
     constructor(props){
         super(props);
         this.state = { email: "", password: "", name: "" };
-        // this.state = {
-        //     result: ""
-        // };
         this.getEmail = this.getEmail.bind(this);
         this.getPassword = this.getPassword.bind(this);
         this.getName = this.getName.bind(this);

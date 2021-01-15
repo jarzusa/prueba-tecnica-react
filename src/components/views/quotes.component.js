@@ -52,7 +52,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
               {this.state.value && this.state.value.map((v, i) => {
-                      return(<Card key={i.toString()} name={v.razon_social} quota_on={v.cupos_disponibles} quota_total={v.cupos_totales} code={v.cod} description={v.descripcion} date={v.fecha}></Card>)
+                      return(<Card key={i.toString()} name={v.razon_social} quota_on={v.cupos_disponibles} quota_total={v.cupos_totales} code={v.cod} description={v.descripcion} date={v.fecha} hiddeButton={true}></Card>)
                       })
               }
           </div>
