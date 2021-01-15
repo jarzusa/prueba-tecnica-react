@@ -46,6 +46,9 @@ export default class Rol extends Component {
                         if (response.data.status === "Token is Expired") {
                             URL_API.goToLogin();
                         }
+                        if (response.data.status === "Token is Invalid") {
+                            URL_API.goToLogin();
+                        }
                     }
 
                     if (response.data) {

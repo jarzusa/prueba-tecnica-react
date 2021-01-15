@@ -25,6 +25,9 @@ class Quotes extends Component {
         if (res.data.status === "Token is Expired") {
           URL_API.goToLogin();
         }
+        if (res.data.status === "Token is Invalid") {
+          URL_API.goToLogin();
+        }
       }
 
       this.quotes = [];

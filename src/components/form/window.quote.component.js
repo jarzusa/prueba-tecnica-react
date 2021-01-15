@@ -65,6 +65,10 @@ export default class WindowQuote extends Component {
                           URL_API.goToLogin();
                         // alert("Session expired")
                         }
+
+                        if (response.data.status === "Token is Invalid") {
+                            URL_API.goToLogin();
+                        }
                     }
 
                     if (response.data) {

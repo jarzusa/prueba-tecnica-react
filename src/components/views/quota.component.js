@@ -29,6 +29,9 @@ class Quota extends Component {
           if (res.data.status === "Token is Expired") {
             URL_API.goToLogin();
           }
+          if (res.data.status === "Token is Invalid") {
+            URL_API.goToLogin();
+          }
         }
 
         if (res.data.data) {
@@ -57,6 +60,9 @@ class Quota extends Component {
       .then((res) => {
         if (res.data.status) {
           if (res.data.status === "Token is Expired") {
+            URL_API.goToLogin();
+          }
+          if (res.data.status === "Token is Invalid") {
             URL_API.goToLogin();
           }
         }

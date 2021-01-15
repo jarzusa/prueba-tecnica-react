@@ -26,8 +26,12 @@ class QuotesProvider extends Component {
       headers: URL_API.getHeaders()
     })
     .then(res => {  
+      // debugger
       if (res.data.status) {
         if (res.data.status === "Token is Expired") {
+          URL_API.goToLogin();
+        }
+        if (res.data.status === "Token is Invalid") {
           URL_API.goToLogin();
         }
       }

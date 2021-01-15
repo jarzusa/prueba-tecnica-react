@@ -41,7 +41,11 @@ export default class Card extends Component {
                         if (response.data.status === "Token is Expired") {
                             URL_API.goToLogin();
                         } else {
-                            alert(response.data.message)
+                            if (response.data.status === "Token is Invalid") {
+                              URL_API.goToLogin();
+                            } else {
+                                alert(response.data.message)
+                            }
                         }
                     }
                     URL_API.refreshPage();

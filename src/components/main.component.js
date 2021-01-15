@@ -20,7 +20,11 @@ export default class Main extends Component {
 
     constructor(props){
         super(props)
-        this.getRoles();
+        if (URL_API.user.access_token === null) {
+            URL_API.goToLogin()
+        } else {
+            this.getRoles();
+        }
     }
     
     getRoles(){        
@@ -35,7 +39,6 @@ export default class Main extends Component {
                 if (value.cod === 1) { // Solicitante
                     solicitante = true
                 }
-
                 
                 if (prestador && solicitante) {
                     this.nav.push(<NavLink to='/providers' replace >Prestadores</NavLink>);

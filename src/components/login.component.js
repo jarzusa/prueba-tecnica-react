@@ -51,10 +51,17 @@ export default class Login extends Component {
                         } else {
                             localStorage.setItem('currentUser', JSON.stringify(response.data));
                             URL_API.user = JSON.parse(localStorage.getItem('currentUser'));
-                            if (response.data.roles.length > 0) {
-                                this.props.history.push('/inicio')
+                            // debugger
+                            if (response.data.status === 422) {
+                                alert(response.data.message)
                             } else {
-                                this.props.history.push('/rol')
+                                if (response.data.roles) {
+                                    if (response.data.roles.length > 0) {
+                                        this.props.history.push('/inicio')
+                                    } else {
+                                        this.props.history.push('/rol')
+                                    }
+                                }
                             }
                         }
                     }
