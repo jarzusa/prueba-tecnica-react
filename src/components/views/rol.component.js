@@ -10,6 +10,10 @@ export default class Rol extends Component {
     constructor(props){
         super(props);
 
+        if (URL_API.user.access_token === null) {
+            URL_API.goToLogin()
+        } 
+        
         this.state = {
             rol: null
         };
