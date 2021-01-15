@@ -3,7 +3,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import moment from 'moment';
 import axios from 'axios';
-import URL_API from "./../../config/url.api";
+import URL_API, { refreshPage } from "./../../config/url.api";
 import Button from "./../form/button.component";
 import { faCalendarPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -69,7 +69,7 @@ export default class WindowQuote extends Component {
 
                     if (response.data.status) {
                         if (response.data.status === "Token is Expired") {
-                        this.goToLogin();
+                          URL_API.goToLogin();
                         // alert("Session expired")
                         }
                     }
@@ -80,7 +80,7 @@ export default class WindowQuote extends Component {
                         } else {
                             $('#myModal').modal('hide')
                             alert(response.data.message)
-                            this.refreshPage()
+                            URL_API.refreshPage();
                         }
                     }
                     return response;
@@ -90,13 +90,7 @@ export default class WindowQuote extends Component {
                 })
         }
     }
-    refreshPage() {
-        window.location.reload();
-    }
 
-    goToLogin() {
-        window.location.href = URL_API.urlUi;
-    }
     render() {
       return (
         <div>

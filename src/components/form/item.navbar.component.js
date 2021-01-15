@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import URL_API from "../../config/url.api";
 export default class ItemNavBar extends Component {
     constructor(props) {
         super(props);

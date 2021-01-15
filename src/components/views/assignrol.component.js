@@ -47,14 +47,6 @@ export default class AssignRol extends Component {
             rol: event.value
         })
     }
-  
-    refreshPage(){ 
-      window.location.reload(); 
-    }
-    
-    goToLogin(){ 
-      window.location.href = URL_API.urlUi;
-    }
 
     sendData(){
         if (this.state.rol === null) {
@@ -76,7 +68,7 @@ export default class AssignRol extends Component {
 
                     if (response.data.status) {
                         if (response.data.status === "Token is Expired") {
-                        this.goToLogin();
+                            URL_API.goToLogin();
                         }
                     }
 
@@ -86,7 +78,7 @@ export default class AssignRol extends Component {
                         } else {
                             alert("Debe iniciar sesion nuevamente")
                             setTimeout(() => {
-                                this.goToLogin();
+                                URL_API.goToLogin();
                             }, 1000);
                         }
                     }

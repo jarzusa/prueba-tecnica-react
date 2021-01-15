@@ -10,14 +10,6 @@ class Quotes extends Component {
     this.state = {value: ''};
     this.getQuotesByUserAuth()
   }
-  
-  refreshPage(){ 
-    window.location.reload(); 
-  }
-  
-  goToLogin(){ 
-    window.location.href = URL_API.urlUi;
-  }
 
   componentWillMount() {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
@@ -36,7 +28,7 @@ class Quotes extends Component {
     .then(res => {
       if (res.data.status) {
         if (res.data.status === "Token is Expired") {
-          this.goToLogin();
+          URL_API.goToLogin();
         }
       }
 

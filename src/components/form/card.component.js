@@ -9,14 +9,6 @@ export default class Card extends Component {
             value: ''
         };
     }
-  
-    refreshPage(){ 
-      window.location.reload(); 
-    }
-    
-    goToLogin(){ 
-      window.location.href = URL_API.urlUi;
-    }
 
     componentDidMount() {
         this.user = JSON.parse(localStorage.getItem('currentUser'));
@@ -45,12 +37,12 @@ export default class Card extends Component {
                 } else {
                     if (response.data.status) {
                         if (response.data.status === "Token is Expired") {
-                            this.goToLogin();
+                            URL_API.goToLogin();
                         } else {
                             alert(response.data.message)
                         }
                     }
-                    this.refreshPage();
+                    URL_API.refreshPage();
                 }
             }
             return response;

@@ -20,14 +20,6 @@ export default class QuotaProvider extends Component {
     this.getQuotes();
   }
   
-  refreshPage(){ 
-    window.location.reload(); 
-  }
-  
-  goToLogin(){ 
-    window.location.href = URL_API.urlUi;
-  }
-
   getQuotes() {
     axios
       .get(URL_API.urlServe+"prestador/listarCitas", {
@@ -39,7 +31,7 @@ export default class QuotaProvider extends Component {
       .then((res) => {
         if (res.data.status) {
           if (res.data.status === "Token is Expired") {
-            this.goToLogin();
+            URL_API.goToLogin();
           }
         }
 
@@ -71,7 +63,7 @@ export default class QuotaProvider extends Component {
       .then((res) => {
         if (res.data.status) {
           if (res.data.status === "Token is Expired") {
-            this.goToLogin();
+            URL_API.goToLogin();
           }
         }
 

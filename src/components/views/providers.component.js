@@ -7,14 +7,6 @@ export default class Providers extends Component {
     super(props);
     this.state = {value: ''};
   }
-  
-  refreshPage(){ 
-    window.location.reload(); 
-  }
-  
-  goToLogin(){ 
-    window.location.href = URL_API.urlUi;
-  }
 
   componentDidMount(){
     this.setState({
@@ -38,7 +30,7 @@ export default class Providers extends Component {
       if (res.data.status) {
         this.providers = [];
         if (res.data.status === "Token is Expired") {
-          this.goToLogin()
+          URL_API.goToLogin()
         }
       }
 

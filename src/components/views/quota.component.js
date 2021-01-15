@@ -19,14 +19,6 @@ class Quota extends Component {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
     this.getQuotes();
   }
-  
-  refreshPage(){ 
-    window.location.reload(); 
-  }
-  
-  goToLogin(){ 
-    window.location.href = URL_API.urlUi;
-  }
 
   getQuotes() {
     axios
@@ -39,7 +31,7 @@ class Quota extends Component {
       .then((res) => {
         if (res.data.status) {
           if (res.data.status === "Token is Expired") {
-            this.goToLogin();
+            URL_API.goToLogin();
           }
         }
 
@@ -71,7 +63,7 @@ class Quota extends Component {
       .then((res) => {
         if (res.data.status) {
           if (res.data.status === "Token is Expired") {
-            this.goToLogin();
+            URL_API.goToLogin();
           }
         }
 
