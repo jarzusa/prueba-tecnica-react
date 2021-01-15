@@ -14,7 +14,6 @@ export default class CardProvider extends Component {
     }
 
     componentWillMount(){
-        this.user = JSON.parse(localStorage.getItem('currentUser'));
         this.button = <p></p>;
         if (!this.props.hideButton) {
             this.button = <button type="button" value={this.props.code} className="btn btn-primary" onClick={this.suscribeProvider.bind(this)} className="btn btn-primary">Suscribirse</button>
@@ -31,10 +30,7 @@ export default class CardProvider extends Component {
                 IdUserPrestador: id
             }, 
             {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: this.user.token_type + ' ' + this.user.access_token //the token is a variable which holds the token
-            }
+            headers: URL_API.getHeaders()
         })
         .then(response => {
             if (response.data) {

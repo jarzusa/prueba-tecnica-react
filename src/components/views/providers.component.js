@@ -15,16 +15,12 @@ export default class Providers extends Component {
   }
 
   componentWillMount() {
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
     this.getProviders();
   }
 
   getProviders(){
     axios.get(URL_API.urlServe+"solicitante/listarPrestadores", {
-      headers: {
-          'Content-Type': 'application/json',
-          Authorization: this.user.token_type + ' ' + this.user.access_token //the token is a variable which holds the token
-      }
+      headers: URL_API.getHeaders()
     })
     .then(res => {
       if (res.data.status) {

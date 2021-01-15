@@ -24,10 +24,6 @@ export default class AssignRol extends Component {
         this.sendData = this.sendData.bind(this);
     }
 
-    componentDidMount(){
-        this.user = JSON.parse(localStorage.getItem('currentUser'));
-    }
-
     getEmail(result) {
         // the event context comes from the Child
         this.setState({ 
@@ -59,10 +55,7 @@ export default class AssignRol extends Component {
             
             axios
                 .post(URL_API.urlServe+"auth/asignarPerfil", roles, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: this.user.token_type + ' ' + this.user.access_token //the token is a variable which holds the token
-                    }
+                    headers: URL_API.getHeaders()
                 })
                 .then(response => {
 

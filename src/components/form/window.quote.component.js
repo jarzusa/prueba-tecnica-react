@@ -23,10 +23,6 @@ export default class WindowQuote extends Component {
         $('#myModal').modal('show')
     }
 
-    componentDidMount(){
-        this.user = JSON.parse(localStorage.getItem('currentUser'));
-    }
-
 
     handleChangeDate(result) {
         this.setState({ 
@@ -60,10 +56,7 @@ export default class WindowQuote extends Component {
             
             axios
                 .post(URL_API.urlServe+"prestador/crearCita", quota, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: this.user.token_type + ' ' + this.user.access_token //the token is a variable which holds the token
-                    }
+                    headers: URL_API.getHeaders()
                 })
                 .then(response => {
 

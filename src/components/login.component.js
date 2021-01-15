@@ -52,6 +52,7 @@ export default class Login extends Component {
                             alert(response.data.message)
                         } else {
                             localStorage.setItem('currentUser', JSON.stringify(response.data));
+                            URL_API.user = JSON.parse(localStorage.getItem('currentUser'));
                             if (response.data.roles.length > 0) {
                                 this.props.history.push('/inicio')
                             } else {

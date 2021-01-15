@@ -18,16 +18,12 @@ class QuotesProvider extends Component {
   }
 
   componentWillMount() {
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
     this.getQuotesByUserAuth();
   }
 
   getQuotesByUserAuth(){
     axios.get(URL_API.urlServe+"solicitante/listarCitas", {
-      headers: {
-          'Content-Type': 'application/json',
-          Authorization: this.user.token_type + ' ' + this.user.access_token
-      }
+      headers: URL_API.getHeaders()
     })
     .then(res => {  
       if (res.data.status) {

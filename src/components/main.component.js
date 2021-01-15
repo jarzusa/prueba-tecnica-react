@@ -23,13 +23,11 @@ export default class Main extends Component {
         this.getRoles();
     }
     
-    getRoles(){
-        this.user = JSON.parse(localStorage.getItem('currentUser'));
-        
-        if (this.user.roles.length > 0) {
+    getRoles(){        
+        if (URL_API.user.roles.length > 0) {
             let prestador = false;
             let solicitante = false;
-            this.user.roles.map(value => {
+            URL_API.user.roles.map(value => {
                 this.nav = [];
                 if (value.cod === 2) { // Prestador
                     prestador = true;

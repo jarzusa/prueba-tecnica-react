@@ -11,24 +11,19 @@ export default class Card extends Component {
     }
 
     componentDidMount() {
-        this.user = JSON.parse(localStorage.getItem('currentUser'));
         this.setState({
             value: this.props
         })
     }
 
     suscribeQuote(props){
-        // let user = JSON.parse(localStorage.getItem('currentUser'));
         let data = {
             codCita: props.code
         };
         axios
         .post(URL_API.urlServe+"solicitante/apartarCupo", data,
             {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: this.user.token_type + ' ' + this.user.access_token //the token is a variable which holds the token
-            }
+            headers: URL_API.getHeaders()
         })
         .then(response => {
             if (response.data) {

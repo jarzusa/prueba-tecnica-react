@@ -20,10 +20,6 @@ export default class Rol extends Component {
         ]
     }
 
-    componentDidMount(){
-        this.user = JSON.parse(localStorage.getItem('currentUser'));
-    }
-
     handleChange(event) {
         this.setState({
             rol: event.value
@@ -42,10 +38,7 @@ export default class Rol extends Component {
             
             axios
                 .post(URL_API.urlServe+"auth/asignarPerfil", roles, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: this.user.token_type + ' ' + this.user.access_token //the token is a variable which holds the token
-                    }
+                    headers: URL_API.getHeaders()
                 })
                 .then(response => {
 

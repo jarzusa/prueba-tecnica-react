@@ -16,17 +16,13 @@ export default class QuotaProvider extends Component {
   }
 
   componentWillMount() {
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
     this.getQuotes();
   }
   
   getQuotes() {
     axios
       .get(URL_API.urlServe+"prestador/listarCitas", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: this.user.token_type + " " + this.user.access_token, //the token is a variable which holds the token
-        },
+        headers: URL_API.getHeaders()
       })
       .then((res) => {
         if (res.data.status) {
@@ -55,10 +51,7 @@ export default class QuotaProvider extends Component {
       }
     axios
       .get(URL_API.urlServe+"prestador/listarCuposCita/"+ data.cod, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: this.user.token_type + " " + this.user.access_token, //the token is a variable which holds the token
-        },
+        headers: URL_API.getHeaders(),
       })
       .then((res) => {
         if (res.data.status) {
